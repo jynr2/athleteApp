@@ -1,0 +1,65 @@
+<app-nav>
+  <div *ngIf="role == 'admin' else maintenace" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="athlete">
+        <th mat-header-cell *matHeaderCellDef> athlete </th>
+        <td mat-cell *matCellDef="let element"> {{element.athlete}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef> age </th>
+        <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef> country </th>
+        <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef> year </th>
+        <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sport">
+        <th mat-header-cell *matHeaderCellDef> sport </th>
+        <td mat-cell *matCellDef="let element"> {{element.sport}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="gold">
+        <th mat-header-cell *matHeaderCellDef> gold </th>
+        <td mat-cell *matCellDef="let element"> {{element.gold}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="silver">
+        <th mat-header-cell *matHeaderCellDef> silver </th>
+        <td mat-cell *matCellDef="let element"> {{element.silver}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="bronze">
+        <th mat-header-cell *matHeaderCellDef> bronze </th>
+        <td mat-cell *matCellDef="let element"> {{element.bronze}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef> total </th>
+        <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+  <ng-template #maintenace>
+    <img class="imgRender" mat-card-image src="../../../assets/img/maintenance.png">
+  </ng-template>  
+</app-nav>
